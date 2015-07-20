@@ -26,14 +26,16 @@ def whisper(word, word_eol, userdata):
 
 	return hexchat.EAT_ALL
 
-def userstate(word, word_eol, userdata):
+def hidemessage(word, word_eol, userdata):
 	return hexchat.EAT_ALL
 
 def unload_cb(userdata):
 	hexchat.prnt('\003' + __module_name__ + ' ' + __module_version__ + ' unloaded\003')
 
-hexchat.hook_server('CLEARCHAT' ,clearchat)
-hexchat.hook_server('WHISPER' ,whisper)
-hexchat.hook_server('USERSTATE' ,userstate)
+hexchat.hook_server('CLEARCHAT', clearchat)
+hexchat.hook_server('WHISPER', whisper)
+hexchat.hook_server('USERSTATE', hidemessage)
+hexchat.hook_server('ROOMSTATE', hidemessage)
+hexchat.hook_server('HOSTTARGET', hidemessage)
 
 hexchat.prnt('\003' + __module_name__ + ' ' + __module_version__ + ' loaded\003')

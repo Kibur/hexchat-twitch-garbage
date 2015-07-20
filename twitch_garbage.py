@@ -38,4 +38,6 @@ hexchat.hook_server('USERSTATE', hidemessage)
 hexchat.hook_server('ROOMSTATE', hidemessage)
 hexchat.hook_server('HOSTTARGET', hidemessage)
 
+hexchat.hook_unload(unload_cb)
+
 hexchat.prnt('\003' + __module_name__ + ' ' + __module_version__ + ' loaded\003')
